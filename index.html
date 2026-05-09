@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Graduation 🎓</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- AUDIO -->
+  <audio id="bgm" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- OPENING -->
+  <section class="opening" id="opening">
+
+    <div class="overlay"></div>
+
+    <div class="content">
+
+      <h1>Congratulations 🎓</h1>
+
+      <p>Selamat atas wisudamu</p>
+
+      <button id="openBtn">
+        Buka Ucapan
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN -->
+  <section class="main hidden" id="main">
+
+    <h2 class="title">
+      Selamat Wisuda ✨
+    </h2>
+
+    <!-- SLIDER -->
+    <div class="slider">
+
+      <img src="images/foto1.jpg" class="slide active">
+
+      <img src="images/foto2.jpg" class="slide">
+
+      <img src="images/foto3.jpg" class="slide">
+
+    </div>
+
+    <!-- MESSAGE -->
+    <div class="message">
+
+      <p id="typing"></p>
+
+    </div>
+
+  </section>
+
+  <!-- CONFETTI -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
