@@ -1,14 +1,12 @@
-const startBtn = document.getElementById("startBtn");
+window.addEventListener("load", () => {
 
-const opening = document.getElementById("opening");
+  alert(
+    "Happy Graduate 🎓\n\nSelamat atas pencapaian luar biasa ini."
+  );
 
-const mainContent = document.getElementById("mainContent");
+  const bgVideo = document.getElementById("bgVideo");
 
-const bgVideo = document.getElementById("bgVideo");
-
-const music = document.getElementById("music");
-
-startBtn.addEventListener("click", () => {
+  const music = document.getElementById("music");
 
   // PLAY VIDEO
   bgVideo.play();
@@ -16,26 +14,27 @@ startBtn.addEventListener("click", () => {
   // PLAY MUSIC
   music.play();
 
-  // HIDE OPENING
-  opening.style.display = "none";
+  // TYPING EFFECT
+  const typing = document.getElementById("typing");
 
-  // SHOW CONTENT
-  mainContent.style.display = "flex";
+  const text = "Happy Graduate 🎓";
 
-});  leaf.classList.add("leaf");
+  let index = 0;
 
-  leaf.innerHTML = "🍃";
+  function typeText(){
 
-  leaf.style.left = Math.random() * 100 + "vw";
+    if(index < text.length){
 
-  leaf.style.animationDuration =
-    (Math.random() * 5 + 5) + "s";
+      typing.innerHTML += text.charAt(index);
 
-  leaf.style.fontSize =
-    (Math.random() * 20 + 15) + "px";
+      index++;
 
-  leaf.style.opacity = Math.random();
+      setTimeout(typeText, 120);
 
-  document.body.appendChild(leaf);
+    }
 
-}
+  }
+
+  typeText();
+
+});
