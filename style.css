@@ -22,6 +22,7 @@ body{
   object-fit:cover;
 
   z-index:-2;
+  pointer-events: none;
 }
 
 /* OVERLAY */
@@ -44,6 +45,8 @@ body{
   align-items:center;
 
   padding:20px;
+  position:relative;
+  z-index:10;
 }
 
 .opening-box{
@@ -62,6 +65,8 @@ body{
   max-width:500px;
 
   width:100%;
+  position: relative;
+  z-index: 11;
 }
 
 .opening-box h1{
@@ -94,6 +99,8 @@ body{
   cursor:pointer;
 
   transition:0.3s;
+  position: relative;
+  z-index:12;
 }
 
 #startBtn:hover{
