@@ -1,40 +1,28 @@
-// MUSIC
+const startBtn = document.getElementById("startBtn");
+
+const opening = document.getElementById("opening");
+
+const mainContent = document.getElementById("mainContent");
+
+const bgVideo = document.getElementById("bgVideo");
+
 const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
 
-let playing = false;
+startBtn.addEventListener("click", () => {
 
-musicBtn.addEventListener("click", () => {
+  // PLAY VIDEO
+  bgVideo.play();
 
-  if(!playing){
+  // PLAY MUSIC
+  music.play();
 
-    music.play();
+  // HIDE OPENING
+  opening.style.display = "none";
 
-    musicBtn.innerHTML = "❚❚";
+  // SHOW CONTENT
+  mainContent.style.display = "flex";
 
-    playing = true;
-
-  } else {
-
-    music.pause();
-
-    musicBtn.innerHTML = "▶";
-
-    playing = false;
-
-  }
-
-});
-
-
-// LEAVES EFFECT
-const totalLeaves = 25;
-
-for(let i = 0; i < totalLeaves; i++){
-
-  const leaf = document.createElement("div");
-
-  leaf.classList.add("leaf");
+});  leaf.classList.add("leaf");
 
   leaf.innerHTML = "🍃";
 
