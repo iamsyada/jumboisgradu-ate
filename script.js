@@ -1,18 +1,11 @@
 window.addEventListener("load", () => {
 
-  alert(
-    "Happy Graduate 🎓\n\nSelamat atas pencapaian luar biasa ini."
-  );
-
   const bgVideo = document.getElementById("bgVideo");
 
   const music = document.getElementById("music");
 
   // PLAY VIDEO
   bgVideo.play();
-
-  // PLAY MUSIC
-  music.play();
 
   // TYPING EFFECT
   const typing = document.getElementById("typing");
@@ -36,5 +29,12 @@ window.addEventListener("load", () => {
   }
 
   typeText();
+
+  // PLAY MUSIC AFTER FIRST CLICK
+  document.body.addEventListener("click", () => {
+
+    music.play();
+
+  }, { once:true });
 
 });
