@@ -1,191 +1,39 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Happy Graduate</title>
 
   <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
-    body{
-      font-family:'Poppins',sans-serif;
-      overflow-x:hidden;
-      background:black;
-      color:white;
-    }
-
-    /* BACKGROUND VIDEO */
-    .bg-video{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      z-index:-2;
-    }
-
-    /* OVERLAY */
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.45);
-      z-index:-1;
-    }
-
-    /* MAIN */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:20px;
-    }
-
-    .card{
-      width:100%;
-      max-width:700px;
-      padding:45px 35px;
-      border-radius:28px;
-      backdrop-filter:blur(10px);
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.2);
-      box-shadow:0 10px 40px rgba(0,0,0,0.4);
-
-      animation:fadeUp 1.5s ease;
-    }
-
-    .small-text{
-      letter-spacing:4px;
-      font-size:14px;
-      margin-bottom:15px;
-      color:#d6ffd6;
-    }
-
-    h1{
-      font-size:65px;
-      line-height:1.1;
-      margin-bottom:20px;
-      font-family:'Playfair Display',serif;
-      text-shadow:0 4px 15px rgba(0,0,0,0.4);
-    }
-
-    .graduate{
-      color:#b7ffb7;
-    }
-
-    p{
-      font-size:17px;
-      line-height:1.8;
-      color:#f1f1f1;
-      margin-bottom:30px;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:14px 28px;
-      border-radius:999px;
-      background:#9be89b;
-      color:#103110;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-    }
-
-    .btn:hover{
-      transform:translateY(-3px) scale(1.03);
-      background:white;
-    }
-
-    /* MUSIC BUTTON */
-    .music-btn{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      width:60px;
-      height:60px;
-      border:none;
-      border-radius:50%;
-      font-size:24px;
-      cursor:pointer;
-      background:rgba(255,255,255,0.2);
-      backdrop-filter:blur(8px);
-      color:white;
-      transition:0.3s;
-    }
-
-    .music-btn:hover{
-      transform:scale(1.1);
-    }
-
-    /* FLOWERS */
-    .leaf{
-      position:fixed;
-      top:-10%;
-      font-size:22px;
-      animation:fall linear infinite;
-      opacity:0.8;
-    }
-
-    @keyframes fall{
-      0%{
-        transform:translateY(-10vh) rotate(0deg);
-      }
-
-      100%{
-        transform:translateY(110vh) rotate(360deg);
-      }
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(40px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    @media(max-width:768px){
-
-      h1{
-        font-size:42px;
-      }
-
-      p{
-        font-size:15px;
-      }
-
-      .card{
-        padding:35px 25px;
-      }
-
-    }
-
-  </style>
 </head>
 <body>
 
-  <!-- VIDEO BACKGROUND -->
-  <video autoplay muted loop playsinline class="bg-video">
+  <!-- VIDEO -->
+  <video
+    id="bgVideo"
+    class="bg-video"
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
     <source src="jumbo.mp4" type="video/mp4">
   </video>
 
+  <!-- OVERLAY -->
   <div class="overlay"></div>
 
   <!-- MUSIC -->
@@ -193,86 +41,58 @@
     <source src="jumbo.mp3" type="audio/mp3">
   </audio>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- OPENING -->
+  <section class="opening" id="opening">
 
-    <div class="card">
-
-      <div class="small-text">A BEAUTIFUL JOURNEY</div>
+    <div class="opening-box">
 
       <h1>
-        Happy <span class="graduate">Graduate</span> 🎓
+        Happy Graduate
       </h1>
 
       <p>
-        Selamat atas pencapaian luar biasa ini.
-        Semoga setiap langkah ke depan dipenuhi
-        kebahagiaan, kesuksesan, dan mimpi yang
-        menjadi nyata seperti indahnya alam yang
-        selalu memberi harapan baru.
+        Sebuah perjalanan indah telah berhasil kamu lewati.
       </p>
 
-      <a href="#" class="btn">
-        Keep Shining ✨
-      </a>
+      <button id="startBtn">
+        Open Message
+      </button>
 
     </div>
 
   </section>
 
-  <!-- MUSIC BUTTON -->
-  <button class="music-btn" id="musicBtn">
-    ▶
-  </button>
+  <!-- MAIN CONTENT -->
+  <section class="main-content" id="mainContent">
 
-  <!-- LEAVES -->
-  <script>
+    <div class="message-box">
 
-    // MUSIC
-    const music = document.getElementById("music");
-    const musicBtn = document.getElementById("musicBtn");
+      <h2>
+        Congratulations 🎓
+      </h2>
 
-    let playing = false;
+      <p>
+        Selamat atas pencapaian luar biasa ini.
+        Semoga semua mimpi dan harapanmu
+        berjalan seindah alam yang selalu
+        membawa ketenangan dan harapan baru.
+      </p>
 
-    musicBtn.addEventListener("click", () => {
+      <!-- PHOTO -->
+      <div class="photo-wrap">
 
-      if(!playing){
-        music.play();
-        musicBtn.innerHTML = "❚❚";
-        playing = true;
-      } else {
-        music.pause();
-        musicBtn.innerHTML = "▶";
-        playing = false;
-      }
+        <img src="foto1.jpg" alt="photo">
 
-    });
+        <img src="foto2.jpg" alt="photo">
 
-    // LEAVES EFFECT
-    const totalLeaves = 25;
+      </div>
 
-    for(let i=0; i<totalLeaves; i++){
+    </div>
 
-      const leaf = document.createElement("div");
-      leaf.classList.add("leaf");
+  </section>
 
-      leaf.innerHTML = "🍃";
-
-      leaf.style.left = Math.random() * 100 + "vw";
-
-      leaf.style.animationDuration =
-        (Math.random() * 5 + 5) + "s";
-
-      leaf.style.fontSize =
-        (Math.random() * 20 + 15) + "px";
-
-      leaf.style.opacity = Math.random();
-
-      document.body.appendChild(leaf);
-
-    }
-
-  </script>
+  <!-- JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>
