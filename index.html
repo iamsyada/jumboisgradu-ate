@@ -1,74 +1,278 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Graduate</title>
 
-  <title>Graduation 🎓</title>
-
-  <link rel="stylesheet" href="style.css">
-
+  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-</head>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      overflow-x:hidden;
+      background:black;
+      color:white;
+    }
+
+    /* BACKGROUND VIDEO */
+    .bg-video{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-2;
+    }
+
+    /* OVERLAY */
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+      z-index:-1;
+    }
+
+    /* MAIN */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:700px;
+      padding:45px 35px;
+      border-radius:28px;
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.2);
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+
+      animation:fadeUp 1.5s ease;
+    }
+
+    .small-text{
+      letter-spacing:4px;
+      font-size:14px;
+      margin-bottom:15px;
+      color:#d6ffd6;
+    }
+
+    h1{
+      font-size:65px;
+      line-height:1.1;
+      margin-bottom:20px;
+      font-family:'Playfair Display',serif;
+      text-shadow:0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .graduate{
+      color:#b7ffb7;
+    }
+
+    p{
+      font-size:17px;
+      line-height:1.8;
+      color:#f1f1f1;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:999px;
+      background:#9be89b;
+      color:#103110;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px) scale(1.03);
+      background:white;
+    }
+
+    /* MUSIC BUTTON */
+    .music-btn{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:60px;
+      height:60px;
+      border:none;
+      border-radius:50%;
+      font-size:24px;
+      cursor:pointer;
+      background:rgba(255,255,255,0.2);
+      backdrop-filter:blur(8px);
+      color:white;
+      transition:0.3s;
+    }
+
+    .music-btn:hover{
+      transform:scale(1.1);
+    }
+
+    /* FLOWERS */
+    .leaf{
+      position:fixed;
+      top:-10%;
+      font-size:22px;
+      animation:fall linear infinite;
+      opacity:0.8;
+    }
+
+    @keyframes fall{
+      0%{
+        transform:translateY(-10vh) rotate(0deg);
+      }
+
+      100%{
+        transform:translateY(110vh) rotate(360deg);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:42px;
+      }
+
+      p{
+        font-size:15px;
+      }
+
+      .card{
+        padding:35px 25px;
+      }
+
+    }
+
+  </style>
+</head>
 <body>
 
-  <!-- AUDIO -->
-  <audio id="bgm" loop>
-    <source src="music.mp3" type="audio/mpeg">
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="nature.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- MUSIC -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mp3">
   </audio>
 
-  <!-- OPENING -->
-  <section class="opening" id="opening">
+  <!-- HERO -->
+  <section class="hero">
 
-    <div class="overlay"></div>
+    <div class="card">
 
-    <div class="content">
+      <div class="small-text">A BEAUTIFUL JOURNEY</div>
 
-      <h1>Congratulations 🎓</h1>
+      <h1>
+        Happy <span class="graduate">Graduate</span> 🎓
+      </h1>
 
-      <p>Selamat atas wisudamu</p>
+      <p>
+        Selamat atas pencapaian luar biasa ini.
+        Semoga setiap langkah ke depan dipenuhi
+        kebahagiaan, kesuksesan, dan mimpi yang
+        menjadi nyata seperti indahnya alam yang
+        selalu memberi harapan baru.
+      </p>
 
-      <button id="openBtn">
-        Buka Ucapan
-      </button>
-
-    </div>
-
-  </section>
-
-  <!-- MAIN -->
-  <section class="main hidden" id="main">
-
-    <h2 class="title">
-      Selamat Wisuda ✨
-    </h2>
-
-    <!-- SLIDER -->
-    <div class="slider">
-
-      <img src="images/foto1.jpg" class="slide active">
-
-      <img src="images/foto2.jpg" class="slide">
-
-      <img src="images/foto3.jpg" class="slide">
-
-    </div>
-
-    <!-- MESSAGE -->
-    <div class="message">
-
-      <p id="typing"></p>
+      <a href="#" class="btn">
+        Keep Shining ✨
+      </a>
 
     </div>
 
   </section>
 
-  <!-- CONFETTI -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- MUSIC BUTTON -->
+  <button class="music-btn" id="musicBtn">
+    ▶
+  </button>
 
-  <script src="script.js"></script>
+  <!-- LEAVES -->
+  <script>
+
+    // MUSIC
+    const music = document.getElementById("music");
+    const musicBtn = document.getElementById("musicBtn");
+
+    let playing = false;
+
+    musicBtn.addEventListener("click", () => {
+
+      if(!playing){
+        music.play();
+        musicBtn.innerHTML = "❚❚";
+        playing = true;
+      } else {
+        music.pause();
+        musicBtn.innerHTML = "▶";
+        playing = false;
+      }
+
+    });
+
+    // LEAVES EFFECT
+    const totalLeaves = 25;
+
+    for(let i=0; i<totalLeaves; i++){
+
+      const leaf = document.createElement("div");
+      leaf.classList.add("leaf");
+
+      leaf.innerHTML = "🍃";
+
+      leaf.style.left = Math.random() * 100 + "vw";
+
+      leaf.style.animationDuration =
+        (Math.random() * 5 + 5) + "s";
+
+      leaf.style.fontSize =
+        (Math.random() * 20 + 15) + "px";
+
+      leaf.style.opacity = Math.random();
+
+      document.body.appendChild(leaf);
+
+    }
+
+  </script>
 
 </body>
 </html>
