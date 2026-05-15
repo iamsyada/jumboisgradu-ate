@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
   // TYPING EFFECT
   const typing = document.getElementById("typing");
 
-  const text = "Happy Graduate 🎓";
+  const text = "Selamat Wisuda Jumbo! 🎓";
 
   let index = 0;
 
